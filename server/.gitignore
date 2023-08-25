@@ -1,4 +1,4 @@
 /node_modules
 .DS_Store
-/.envls
+/.env
 ../.DS_Store
