@@ -14,6 +14,10 @@ import userRoutes from './routes/users.js'
 import postRoutes from './routes/posts.js'
 import { verifyToken } from './middleware/auth.js'
 import { createPost } from './controllers/posts.js'
+import User from './models/User.js'
+import Post from './models/Post.js'
+import { users, posts } from './data/index.js'
+
 // configurations
 // middleware = functions that run in between other function 
 const __filename = fileURLToPath(import.meta.url) // grab the file url
@@ -30,7 +34,7 @@ app.use(cors())
 app.use("assets", express.static(path.join(__dirname, "public/assets")))
 
 // File storage configuration
-// inofrmation for the github repo of multer 
+// information for the github repo of multer 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
       cb(null, "public/assets")
@@ -58,6 +62,8 @@ mongoose.connect(process.env.MONGO_URL, {
     app.listen(PORT, () => {
         console.log(`Server is running on port ${PORT}`)
     })
+    User.insertMany(users)
+    Post.insertMany(posts)
 })
 .catch((error) => {
     console.log(error.message)
