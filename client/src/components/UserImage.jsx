@@ -1,6 +1,7 @@
 import { Box } from '@mui/material'
 
 const UserImage = ({ image, size = '60px' }) => {
+ console.log("🚀 ~ file: UserImage.jsx:4 ~ UserImage ~ image:", image)
  
   return (
     <Box

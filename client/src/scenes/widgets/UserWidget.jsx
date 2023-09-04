@@ -8,7 +8,7 @@
   import UserImage from '../../components/UserImage'
   import FlexBetween from '../../components/FlexBetween'
   import WidgetWrapper from '../../components/WidgetWrapper'
-  import { UseSelector, useSelector } from 'react-redux'
+  import { useSelector } from 'react-redux'
   import { useState, useEffect } from 'react'
   import { useNavigate } from 'react-router-dom'
 
@@ -43,10 +43,10 @@
       firstName, 
       lastName,  
       location, 
-      impressions, 
+      imporessions: impressions, 
       occupation,
       friends,
-      viewProfile
+      viewedProfile,
     } = user
 
     return (
@@ -80,6 +80,7 @@
             </Typography>
           </Box>
           <ManageAccountsOutlined />
+        </FlexBetween>
         <Divider />
         {/* Second Row  */}
         <Box p='1rem 0'>
@@ -110,6 +111,7 @@
             </Typography>
           </Box>
         </Box>
+        <Divider />
         {/* Third Row  */}
         <Box p='1rem 0'>
           <FlexBetween mb='0.5rem'>
@@ -122,7 +124,7 @@
               color={main}
               fontWeight='500'
             >
-              {viewProfile}
+              {viewedProfile}
             </Typography>
             
           </FlexBetween>
@@ -141,7 +143,7 @@
             
           </FlexBetween>
         </Box>
-
+        <Divider />
         {/* Fourth Row  */}
         <Box p='1rem 0'>
           <Typography
@@ -152,7 +154,7 @@
             Social Profiles
           </Typography>
           <FlexBetween gap='1rem' mb='0.5rem'>
-            <FlexBetween gap='1rem'>
+            <FlexBetween gap='0.5rem'>
               <img src='../assets/twitter.png' alt='twitter' />
               <Box>
                 <Typography color={main} fontWeight='500'>
@@ -165,11 +167,11 @@
             </FlexBetween>
             <EditOutlined sx={{ color: main }} />
           </FlexBetween>
-
+          
           <FlexBetween gap='1rem' mb='0.5rem'>
             <FlexBetween>
-              <img src='../assets/linkein.png' alt='linkein' />
-              <Box>
+              <img src='../assets/linkedin.png' alt='linkein' />
+              <Box pl='1rem'>
                 <Typography color={main} fontWeight='500'>
                   Linkein
                 </Typography>
@@ -181,7 +183,6 @@
             <EditOutlined sx={{ color: main }} />
           </FlexBetween>
         </Box>
-        </FlexBetween>
       </WidgetWrapper>
     )
   }
